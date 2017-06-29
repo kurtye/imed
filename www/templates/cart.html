@@ -1,40 +1,50 @@
 <ion-view title="Cart" id="page10">
-  <ion-content padding="true" class="has-header">
-    <ion-list id="cart-list7">
-      <ion-item class="item-thumbnail-left item-icon-right" id="cart-list-item19">
-        <h2>Item</h2>
-        <p>Value $10,00</p>
-        <i class="icon ion-android-remove-circle"></i>
-      </ion-item>
-      <ion-item class="item-thumbnail-left item-icon-right" id="cart-list-item23">
-        <h2>Item</h2>
-        <p>Value $10,00</p>
-        <i class="icon ion-android-remove-circle"></i>
-      </ion-item>
-      <ion-item class="item-thumbnail-left item-icon-right" id="cart-list-item24">
-        <h2>Item</h2>
-        <p>Value $10,00</p>
-        <i class="icon ion-android-remove-circle"></i>
-      </ion-item>
-    </ion-list>
-    <div class="spacer" style="width: 300px; height: 32px;"></div>
-    <div id="cart-markdown10" style="text-align:center;" class="show-list-numbers-and-dots">
-      <p style="color:#000000;font-size:20px;">Total:
-        <strong>$30,00</strong>
-      </p>
-    </div>
-    <div class="spacer" style="width: 300px; height: 32px;"></div>
-    <form id="cart-form4" class="list">
-      <label class="item item-select" id="cart-select1">
-        <span class="input-label">Payament Method</span>
-        <select>
-          <option>Credit Card</option>
-          <option>Money</option>
-          <option>Pay Online</option>
-          <option></option>
-        </select>
-      </label>
-    </form>
-    <button id="cart-button18" class="button button-positive button-block">Buy</button>
-  </ion-content>
+    <ion-content padding="true" class="has-header" style="background: url('../img/G2.png')">
+        <div class="card">
+            <ion-list>
+                <ion-item class="item-icon-right border" id="cart-list-item19">
+                    <h2>Item</h2>
+                    <p>Value $10,00</p>
+                    <i class="icon ion-android-remove-circle"></i>
+                </ion-item>
+                <ion-item class="item item-icon-right" id="cart-list-item23">
+                    <h2>Item</h2>
+                    <p>Value $10,00</p>
+                    <i class="icon ion-android-remove-circle"></i>
+                </ion-item>
+                <ion-item class="item item-icon-right" id="cart-list-item24">
+                    <h2>Item</h2>
+                    <p>Value $10,00</p>
+                    <i class="icon ion-android-remove-circle"></i>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div id="cart-markdown10" style="text-align:center;" class="show-list-numbers-and-dots">
+            <button class="button button-raised button-stable ink-dark">Total: <strong>$30,00 </strong><i
+                    class="ion-bag"></i>
+            </button>
+
+        </div>
+        <div class="spacer" style="width: 300px; height: 32px;"></div>
+        <form name="payment" class="list">
+            <label class="item item-select" id="cart-select1">
+                <span class="input-label">Payment Method</span>
+                <select ng-model="method" required="required">
+                    <option value="card">Credit Card</option>
+                    <option value="money">Money</option>
+                    <option value="online">Pay Online</option>
+                    <option></option>
+                </select>
+            </label>
+        </form>
+        <div class="button-bar">
+            <button class="button icon-left ion-ios-arrow-back button-assertive"
+                    ui-sref="tabsController.drugstore">Keep buying
+            </button>
+            <button ng-show="method != 'online'" ng-disabled="payment.$invalid"
+                    class="button button-positive">Buy
+            </button>
+            <button ng-show="method == 'online'" class="button button-positive">Next</button>
+        </div>
+    </ion-content>
 </ion-view>
